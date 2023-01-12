@@ -1,6 +1,6 @@
 variable "namespace" {
   description = "The project namespace to use for unique resource naming"
-  default     = "charity-terraform-project"
+  default     = "Banina-terraform-project"
   type        = string
 }
 
@@ -12,12 +12,12 @@ variable "region" {
 
 variable "access_key" {
   description = "AWS Access Key"
-  default     = "put your access key here"
+  default     = "AKIA33LFI6YJITANXUFR"
   type        = string
 }
 
 variable "secret_key" {
   description = "AWS Secret Key"
-  default     = "put your secret here"
+  default     = "9BZFq8cZLtKLUst/aCSKMeMiaQ9oUZGnfKy0zzAW"
   type        = string
 }
