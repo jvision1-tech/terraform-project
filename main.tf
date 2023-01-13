@@ -8,7 +8,7 @@ module "ssh-key" {
   namespace = var.namespace
 }
 
-module "ec2" {
+modul "ec2" {
   source          = "./modules/ec2"
   namespace       = var.namespace
   vpc             = module.networking.vpc
