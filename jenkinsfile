@@ -24,7 +24,7 @@ pipeline{
     //stages{
         //stage('Git checkout'){
             //steps{
-                //git credentialsId: 'Jenkins_Github-token', url: 'https://github.com/AndrewBanin/Terraform-Modulesproject.git'
+                //git credetialsId: 'Jenkins_Github-token', url: 'https://github.com/AndrewBanin/Terraform-Modulesproject.git'
            // }
         //}  
     //}
