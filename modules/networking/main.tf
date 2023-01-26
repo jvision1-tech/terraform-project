@@ -28,8 +28,16 @@ resource "aws_security_group" "allow_ssh_pub" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["67.85.77.85/32"]
   }
+    ingress {
+    description = "SSH from Jenkins server"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["${JENKINS_IP}"]
+  }
+
 
   egress {
     from_port   = 0

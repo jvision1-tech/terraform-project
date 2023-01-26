@@ -1,6 +1,6 @@
 variable "namespace" {
   description = "The project namespace to use for unique resource naming"
-  default     = "coker-terraform-project"
+  default     = "${ENVIRONMENT_NAME}"
   type        = string
 }
 
@@ -12,12 +12,12 @@ variable "region" {
 
 variable "access_key" {
   description = "AWS Access Key"
-  default     = "AKIA33LFI6YJITANXUFR"
+  default     = "${AWS_ACCESS_KEY}"
   type        = string
 }
 
 variable "secret_key" {
   description = "AWS Secret Key"
-  default     = "9BZFq8cZLtKLUst/aCSKMeMiaQ9oUZGnfKy0zzAW"
+  default     = "${AWS_SECRET_ACCESS_KEY}"
   type        = string
 }
