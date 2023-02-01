@@ -54,12 +54,12 @@ pipeline{
                 sh 'envsubst < modules/networking/main.tf > modules/networking/main'
                 sh 'rm -rf modules/networking/main.tf '
                 sh 'mv modules/networking/main modules/networking/main.tf'
-                sh 'envsubst < wordpress-frontend.sh > fe'
-                sh 'rm -rf wordpress-frontend.sh '
-                sh 'mv fe wordpress-frontend.sh '
-                sh 'envsubst < mysql_bootstrap.sh > mysql'
-                sh 'rm -rf mysql_bootstrap.sh '
-                sh 'mv mysql mysql_bootstrap.sh '
+                sh 'envsubst < wordpress.sh > fe'
+                sh 'rm -rf wordpress.sh '
+                sh 'mv fe wordpress.sh '
+                sh 'envsubst < mysql.sh > mysql'
+                sh 'rm -rf mysql.sh '
+                sh 'mv mysql mysql.sh '
             }
         }      
         stage('terraform init'){
