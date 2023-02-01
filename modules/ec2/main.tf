@@ -73,16 +73,28 @@ resource "aws_instance" "web_server" {
   key_name                    = var.key_name
   subnet_id                   = var.vpc.private_subnets[0]
   vpc_security_group_ids      = [var.web_sg_id]
-  user_data = <<-EOF
-    #!/bin/bash
-    sudo yum update -y
-    sudo yum install httpd -y
-    sudo systemctl enable httpd
-    sudo systemctl start httpd
-    echo "<html><body><div>Hello, world!</div></body></html>" > /var/www/html/index.html
-    EOF
+  user_data                   = file ("wordpress.sh")
+    # #!/bin/bash
+    # sudo yum update -y
+    # sudo yum install httpd -y
+    # sudo systemctl enable httpd
+    # sudo systemctl start httpd
+    # echo "<html><body><div>Hello, world!</div></body></html>" > /var/www/html/index.html
+    # EOF
   tags = {
     "Name" = "${var.namespace}-web_server"
+  }  
+
+}
+resource "aws_instance" "web_server2" {
+  ami                         = data.aws_ami.amazon-linux-2.id
+  associate_public_ip_address = true
+  instance_type               = var.instance_type
+  key_name                    = var.key_name
+  subnet_id                   = var.vpc.private_subnets[0]
+  vpc_security_group_ids      = [var.web_sg_id]
+  tags = {
+    "Name" = "${var.namespace}-web_server2"
   }  
 
 }
@@ -95,6 +107,7 @@ resource "aws_instance" "db_server" {
   key_name                    = var.key_name
   subnet_id                   = var.vpc.private_subnets[0]
   vpc_security_group_ids      = [var.sg_db_access_id]
+  user_data                   = file ("mysql.sh")
   tags = {
     "Name" = "${var.namespace}-db_server"
   }  
